@@ -5,13 +5,12 @@
     path: "{{ dest_dir }}"
     state: directory
     mode: '0755'
-  ignore_errors: true
 
-- name: Ensure destination directory exists
-  file:
-    path: "{{ dest_dir }}"
-    state: directory
-    mode: '0755'
+# - name: Ensure destination directory exists
+#   file:
+#     path: "{{ dest_dir }}"
+#     state: directory
+#     mode: '0755'
   
 
 - name: Clone Git repository

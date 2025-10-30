@@ -1,6 +1,7 @@
 - name:  Build NTS Docker Images
   hosts: all
   become: yes
+  become_method: sudo
   vars:
     repo_url: "https://github.com/example/repo.git"
     dest_dir: "/opt/NTS"
