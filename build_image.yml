@@ -3,7 +3,7 @@
   become: yes
   vars:
     repo_url: "https://github.com/example/repo.git"
-    dest_dir: "/opt/myproject"
+    dest_dir: "/opt/NTS"
     branch: "main"
 
   roles:
