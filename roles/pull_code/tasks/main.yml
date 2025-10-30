@@ -1,20 +1,13 @@
-- name: Create directory and clone Git repo
-  hosts: all
-  become: yes  # remove if not needed
-  vars:
-    repo_url: "https://github.com/Hammad2410/playbooks.git"
-    dest_dir: "/opt/NTS"
+---
+- name: Ensure destination directory exists
+  file:
+    path: "{{ dest_dir }}"
+    state: directory
+    mode: '0755'
 
-  tasks:
-    - name: Ensure destination directory exists
-      file:
-        path: "{{ dest_dir }}"
-        state: directory
-        mode: '0755'
-
-    - name: Clone Git repository
-      git:
-        repo: "{{ repo_url }}"
-        dest: "{{ dest_dir }}"
-        version: main
-        force: yes
+- name: Clone Git repository
+  git:
+    repo: "{{ repo_url }}"
+    dest: "{{ dest_dir }}"
+    version: main
+    force: yes
