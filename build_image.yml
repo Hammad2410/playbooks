@@ -1,5 +1,10 @@
 - name:  Build NTS Docker Images
   hosts: all
+  become: yes
+  vars:
+    repo_url: "https://github.com/example/repo.git"
+    dest_dir: "/opt/myproject"
+    branch: "main"
 
   roles:
     - pull_code
