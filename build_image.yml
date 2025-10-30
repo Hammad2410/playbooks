@@ -1,0 +1,5 @@
+- name:  Build NTS Docker Images
+  hosts: all
+
+  roles:
+    - pull_code
