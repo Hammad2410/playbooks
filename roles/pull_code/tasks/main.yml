@@ -21,6 +21,9 @@
     version: main
     force: yes
     accept_hostkey: yes
+  environment:
+    GIT_TERMINAL_PROMPT: "0"
+    HOME: "/home/nts"
 
 # - name: Delete directory
 #   ansible.builtin.file:
