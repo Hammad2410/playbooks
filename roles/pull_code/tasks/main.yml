@@ -4,6 +4,7 @@
     path: "{{ dest_dir }}"
     state: directory
     mode: '0755'
+  ignore_error: true
 
 - name: Clone Git repository
   git:
