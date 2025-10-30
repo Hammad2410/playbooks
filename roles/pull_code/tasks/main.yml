@@ -1,10 +1,18 @@
 ---
+
+- name: Create directory
+  ansible.builtin.file:
+    path: "{{ dest_dir }}"
+    state: directory
+    mode: '0755'
+  ignore_errors: true
+
 - name: Ensure destination directory exists
   file:
     path: "{{ dest_dir }}"
     state: directory
     mode: '0755'
-  ignore_errors: true
+  
 
 - name: Clone Git repository
   git:
@@ -12,3 +20,8 @@
     dest: "{{ dest_dir }}"
     version: main
     force: yes
+
+# - name: Delete directory
+#   ansible.builtin.file:
+#     path: "{{ dir_path }}"
+#     state: absent
