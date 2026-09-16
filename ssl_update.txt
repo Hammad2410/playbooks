@@ -1,0 +1,23 @@
+Backup
+
+oc get ingresscontroller default \
+  -n openshift-ingress-operator \
+  -o yaml > /tmp/ingress-cert-backup/ingresscontroller-default.yaml
+
+
+Create Secret 
+
+
+oc create secret tls custom-certs-default \
+  --cert=fullchain.crt \
+  --key=private.key \
+  -n openshift-ingress
+
+
+Point to new secret
+
+
+oc patch ingresscontroller default \
+  -n openshift-ingress-operator \
+  --type=merge \
+  -p '{"spec":{"defaultCertificate":{"name":"custom-certs-default"}}}'
